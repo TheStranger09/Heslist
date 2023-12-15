@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { v4 as uuidv4 } from "uuid"; // Import the uuid library
+
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -17,12 +18,12 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD-FT8pxhX2JTawZgXx2t04aYsC7gWRdhU",
-  authDomain: "taskharbor-3ad3d.firebaseapp.com",
-  projectId: "taskharbor-3ad3d",
-  storageBucket: "taskharbor-3ad3d.appspot.com",
-  messagingSenderId: "331868654396",
-  appId: "1:331868654396:web:87b1756e00bb9682efec39",
+  apiKey: "AIzaSyCmaj-Z_6Zsi6j-UmObNw5dAM1XehZyYgk",
+  authDomain: "listdothis-93dc0.firebaseapp.com",
+  projectId: "listdothis-93dc0",
+  storageBucket: "listdothis-93dc0.appspot.com",
+  messagingSenderId: "20813310214",
+  appId: "1:20813310214:web:feaecedaafdd1a28b1d687"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -39,8 +40,10 @@ export const loginWithEmailAndPassword = async (email, password) => {
     );
     const user = userCredential.user;
     console.log("User logged in successfully:", user.uid);
+    alert("Logged in Successfully")
   } catch (error) {
     console.error("Error logging in:", error.message);
+    alert("Incorrect Password or Email")
   }
 };
 
@@ -53,11 +56,14 @@ export const registerWithEmailAndPassword = async (email, password) => {
     );
     const user = userCredential.user;
     console.log("User registered successfully:", user.uid);
+    alert("Registered Successfully")
     return user;
   } catch (error) {
     console.error("Error registering user:", error.message);
+    alert("Error Registering")
   }
 };
+
 
 export const onTasksSnapshot = (userId, setTasks) => {
   const userTasksRef = doc(collection(db, "users"), userId);

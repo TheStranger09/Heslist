@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState,useEffect} from "react";
+import { FaMoon,FaRegSun } from "react-icons/fa";
 import "./Login.css";
 import {
   loginWithEmailAndPassword,
@@ -14,18 +15,29 @@ export default function Auth() {
   );
 }
 
+
+
 function Login({ setLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const handleLogin = (e) => {
     e.preventDefault();
     loginWithEmailAndPassword(email, password);
   };
+  const [color, setColor] = useState("white");
+  const click = (color) => {
+    setColor(color)
+  }
+  useEffect(()=> {
+    document.body.style.backgroundColor = color;
+  },[color])
+  
   return (
     <div className="container">
       <form onSubmit={(e) => handleLogin(e)}>
         <center>
+          <FaRegSun size={30}  className="mode" onClick = {() => click("white")}/>
+          <FaMoon size={25}  className="mode" onClick =  {() => click("black")}/>
           <h1>LIST DO THIS</h1>
         </center>
         <label htmlFor="email">Email</label>
@@ -90,7 +102,7 @@ function Register({ setLogin }) {
         />
         <label htmlFor="rpassword">Confirm Password:</label>
         <input
-          type="rpassword"
+          type="password"
           name="rpassword"
           id="rpassword"
           placeholder="Confirm Password"

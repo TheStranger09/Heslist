@@ -1,6 +1,13 @@
 html {
   padding: 0%;
   margin: 0%;
+  background-image: url("https://www.transparenttextures.com/patterns/black-thread.png")
+}
+
+
+.mode {  
+  margin-left: 10px;
+  margin-right: 20px;
 }
 
 .container {
@@ -17,12 +24,10 @@ html {
   border: solid black 2px;
   border-radius: 20px;
   padding: 20px;
-  background: rgb(34, 193, 195);
-  background: linear-gradient(
-    0deg,
-    rgba(34, 193, 195, 1) 0%,
-    rgba(253, 187, 45, 1) 100%
-  );
+  background-color: #FFFFFF;
+  background-image: url("https://www.transparenttextures.com/patterns/black-thread.png");
+
+ 
 }
 .container form input {
   font-size: 1.5rem;
@@ -31,15 +36,33 @@ html {
   border-radius: 10px;
   border: solid black 2px;
   margin-bottom: 1rem;
-  background: white;
+  background: #fafafa;
 }
 
 button {
   padding: 0.4rem;
   border-radius: 10px;
   border-color: white;
-  background: #58ff29;
+  background: rgb(61, 59, 59);
 }
 span {
-  color: blue;
+  color: rgb(2, 31, 126);
+}
+
+h1 {
+  color:black;
+}
+.toast-message {
+  background: darkblue;
+  color: #fff;
+  font-size: 20px;
+  width: 34vw;
+  padding: 30px 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .login-form {
+    width: 90%; /* Adjusted width for better responsiveness on small screens */
+    max-width: none; /* Remove max-width on small screens */
+  }
 }
